@@ -1,23 +1,23 @@
 import { config } from "dotenv";
 config();
 
-import { importDocuments } from "./utils/importDocuments.js";
-import { importPersoner } from "./utils/importPersoner.js";
-import { importVoteringar } from "./utils/importVoteringar.js";
-import { importPersonuppdrag } from "./utils/importPersonuppdrag.js";
-import { importDokintressenter } from "./utils/importDokintressenter.js";
-import { importDokforslag } from "./utils/importDokforslag.js";
+import { importDocuments } from "./utils/importdocuments.js";
+import { importPersoner } from "./utils/importpersoner.js";
+import { importPersonuppdrag } from "./utils/importpersonuppdrag.js";
+import { importVoteringar } from "./utils/importvoteringar.js";
+import { importDokintressenter } from "./utils/importdokintressenter.js";
+import { importDokforslag } from "./utils/importdokforslag.js";
 
 async function runAll() {
   console.log("🚀 Startar riksdagsimport...");
 
   try {
-    await importDocuments();           // dokument
-    await importPersoner();            // person
-    await importPersonuppdrag();       // personuppdrag
-    await importVoteringar();          // votering
-    await importDokintressenter();     // dokintressent
-    await importDokforslag();          // dokforslag
+    await importDocuments();
+    await importPersoner();
+    await importPersonuppdrag();
+    await importVoteringar();
+    await importDokintressenter();
+    await importDokforslag();
   } catch (error) {
     console.error("❌ Fel vid import:", error.message);
   }
@@ -26,4 +26,3 @@ async function runAll() {
 }
 
 runAll();
-
