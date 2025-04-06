@@ -51,3 +51,15 @@ export async function importDocuments() {
       dokumentstatus_url_xml,
       utskottsforslag_url_xml,
       html
+        }], {
+      onConflict: ['dok_id']
+    });
+
+    if (error) {
+      console.error(`❌ Fel vid import av dokument ${dok_id}:`, error.message);
+    } else {
+      console.log(`✅ Importerat dokument ${dok_id}`);
+    }
+  }
+
+  console.log("📄 Dokumentimport klar!");
